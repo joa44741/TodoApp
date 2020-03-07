@@ -1,0 +1,16 @@
+<StackLayout dock="top">
+  <Label *ngIf="todos.length == 0" class="page__content-icon fas" text="&#xf03a;"></Label>
+  <Label *ngIf="todos.length == 0" class="page__content-placeholder" text="No Open TODOs"></Label>
+  <CardView *ngFor="let todo of todos; index as i" margin="10" elevation="40" radius="20" class="card">
+    <GridLayout class="card-layout", rows="auto,auto", columns="auto,*">
+      <StackLayout orientation="horizontal" class="p-10">
+        <!-- boxType="square" is the default, just testing this works as well -->
+        <CheckBox #modelCheck [(ngModel)]="todo.done" class="checkbox" boxType="square" (checkedChange)="todoDone(todo)"></CheckBox>
+        <Label text="Test NgModel" (tap)="modelCheck.toggle()"></Label>
+    </StackLayout>
+      <!--CheckBox col="0" row="0" (tap)="todoDone(todo)"  style="margin-right: 30px" checked="{{todo.done}}"></CheckBox-->
+      <Label col="1" row="0" class="heading" style="padding-bottom: 20px" text="{{ todo.shortText }}"></Label>
+      <Label col="1" row="1" style="font-size: 14px" text="{{ todo.longText }}"></Label>
+    </GridLayout>
+  </CardView>
+</StackLayout>

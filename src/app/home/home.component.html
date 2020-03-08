@@ -11,10 +11,10 @@
     -->
   <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left">
   </ActionItem>
-  <Label class="heading" style="color: white" text="My Todos"></Label>
+  <Label class="heading" style="color: white" text="IA2 Todos"></Label>
 </ActionBar>
 
 <DockLayout stretchLastChild="true">
-  <Button dock="bottom" text="+" class="add-button"></Button>
+  <Button dock="bottom" text="+" class="add-button" (tap)="onAdd()"></Button>
   <ns-todo-list></ns-todo-list>
 </DockLayout>
